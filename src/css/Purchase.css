@@ -1,0 +1,84 @@
+.form-content {
+    padding: 40px;
+    margin: 40px auto;
+    max-width: 600px;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, .2);
+}
+
+.tab-content h1 {
+    text-align: center;
+    font-weight: 300;
+    margin: 0 0 40px;
+}
+
+.field-wrap {
+    position: relative;
+}
+
+.field-wrap label {
+    text-align: left;
+    font-size: 20px;
+    margin: 0;
+}
+
+.select-field {
+    display: inline-block;
+    width: 100%;
+    height: 38px;
+    background-color: #F5F5F5;
+    margin: 0 0 35px;
+    position: relative;
+    z-index: 1;
+    border: 1px solid #a0b3b0;
+}
+
+.select-field:after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-top: 9px solid #BDC3D1;
+    border-right: 8px solid transparent;
+    border-left: 8px solid transparent;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 2;
+}
+
+.select-field > select {
+    float: left;
+    width: 100%;
+    height: 100%;
+    border: none;
+    padding: 0 45px 0 15px;
+    background: none;
+    outline: none;
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+    margin: 0;
+    font-size: 20px;
+    position: relative;
+    z-index: 3;
+}
+
+.field-wrap input[type="number"] {
+    width: 100%;
+    height: 38px;
+    margin: 0 0 35px;
+}
+
+.button-buy {
+    width: 100%;
+    border: none;
+    outline: none;
+    border-radius: 0;
+    padding: 15px 0;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    background-color: rgb(37, 109, 231);
+    color: #fff;
+    font-size: 18px;
+}

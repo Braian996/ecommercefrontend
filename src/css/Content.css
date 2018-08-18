@@ -1,0 +1,7 @@
+.Content {
+    height: calc(100% - 56px);
+    display: flex;
+    flex-direction: row;
+    display: -webkit-flex;
+    /*justify-content: space-evenly;*/
+}

@@ -1,0 +1,29 @@
+.Wrap .error {
+    font-size: 26px;
+}
+
+.row {
+    width: 100%;
+}
+
+.row .search {
+    height: 45px;
+    display: flex;
+    position: relative;
+    background-color: #F5F5F5;
+    width: 45%;
+}
+
+.row .search input {
+    border: none;
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+    appearance: textfield;
+    letter-spacing: inherit;
+    font: inherit;
+    background: none;
+    flex-grow: 1;
+    -webkit-box-flex: 1;
+    width: 100%;
+    outline: none;
+}
