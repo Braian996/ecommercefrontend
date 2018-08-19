@@ -64,14 +64,17 @@ class Customers extends Component{
     };
 
     render () {
+        let clase = '';
         const customers = this.getCustomers();
         const error = (<div className="error">{this.state.error}</div>);
         const verification = () => {
             if (this.state.noResults) {
+                clase = 'noDisplay';
                 return 'No se han encontrado resultados'
             } else if (this.state.error) {
                 return error
             } else {
+                clase = '';
                 return customers
             }
         };
@@ -85,6 +88,11 @@ class Customers extends Component{
                                value={this.state.nameInput}
                         />
                         <i className="fa fa-search"></i>
+                    </div>
+                </div>
+                <div className={`Add-new ${clase}`}>
+                    <div className="box-add">
+                        <i className="fa fa-plus fa-5x color"></i>
                     </div>
                 </div>
                 {
