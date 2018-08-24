@@ -8,6 +8,7 @@ import Customers from './components/Customers/Customers';
 import Products from './components/Products/Products';
 import Purchase from './components/Purchase/Purchase';
 import CreateCustomer from './components/CreateCustomer/CreateCustomer';
+import CreateProduct from './components/CreateProduct/CreateProduct';
 
 const AppRoutes = () =>
     <App>
@@ -16,6 +17,7 @@ const AppRoutes = () =>
             <Route exact path="/Customers" component={Customers} />
             <Route exact path="/Products" component={Products} />
             <Route exact path="/CreateCustomer" component={CreateCustomer} />
+            <Route exact path="/CreateProduct" component={CreateProduct} />
         </Switch>
     </App>;
 

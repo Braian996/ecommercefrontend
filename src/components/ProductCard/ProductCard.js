@@ -3,12 +3,12 @@ import React from 'react';
 
 // Assets
 import '../../css/Card.css';
-import avatar from '../../img/avatar_generico.jpg';
+import avatar from '../../img/imagen-no-disponible.png';
 
 const productCard = (props) => {
     return (
         <div className="Card">
-            <img src={avatar} alt="avatar"/>
+            <img src={avatar} alt="imagen-producto"/>
             <div className="container">
                 <h4>Name: {props.name}</h4>
                 <p>Stock: {props.stock}</p>

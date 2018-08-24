@@ -21,7 +21,7 @@ class Products extends Component {
 
     constructor(props){
         super(props);
-        this.connectWithServer();
+        //this.connectWithServer();
         axios.get('http://localhost:4000/categories')
             .then(response => {
                 const {data} = response;
@@ -34,6 +34,10 @@ class Products extends Component {
                     error: err.message
                 })
             });
+    }
+
+    componentDidMount(){
+        this.connectWithServer();
     }
 
     connectWithServer = (parameter) => {
@@ -111,6 +115,10 @@ class Products extends Component {
         return ''
     };
 
+    createProductRedirect = () => {
+        this.props.history.push('/CreateProduct');
+    };
+
     render () {
         const products = this.getProducts();
         const error = (<div className="error">{this.state.error}</div>);
@@ -148,7 +156,7 @@ class Products extends Component {
                         </select>
                     </div>
                 </div>
-                <div className={`Add-new ${classForElement}`}>
+                <div className={`Add-new ${classForElement}`} onClick={this.createProductRedirect}>
                     <div className="box-add">
                         <i className="fa fa-plus fa-5x color"></i>
                     </div>
