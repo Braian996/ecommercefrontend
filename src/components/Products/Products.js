@@ -72,9 +72,16 @@ class Products extends Component {
         axios.get(`http://localhost:4000/productByCategorieId/?categoryId=${parameter}`)
             .then(response => {
                 const {data} = response;
-                this.setState({
-                    products: data
-                })
+                if (data.length === 0) {
+                    this.setState({
+                        noResults: true
+                    })
+                } else {
+                    this.setState({
+                        products: data,
+                        noResults: false
+                    })
+                }
             })
     };
 
@@ -97,18 +104,23 @@ class Products extends Component {
             })
     };
 
+    getClassStyle = () => {
+        if (this.state.noResults) {
+            return 'noDisplay'
+        }
+        return ''
+    };
+
     render () {
-        let clase = '';
         const products = this.getProducts();
         const error = (<div className="error">{this.state.error}</div>);
+        const classForElement = this.getClassStyle();
         const verification = () => {
             if (this.state.noResults) {
-                clase = 'noDisplay'
                 return "No se han encontrado resultados"
             } else if (this.state.error) {
                 return error
             } else {
-                clase = '';
                 return products
             }
         };
@@ -136,7 +148,7 @@ class Products extends Component {
                         </select>
                     </div>
                 </div>
-                <div className={`Add-new ${clase}`}>
+                <div className={`Add-new ${classForElement}`}>
                     <div className="box-add">
                         <i className="fa fa-plus fa-5x color"></i>
                     </div>

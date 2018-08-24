@@ -7,13 +7,15 @@ import App from './components/App';
 import Customers from './components/Customers/Customers';
 import Products from './components/Products/Products';
 import Purchase from './components/Purchase/Purchase';
+import CreateCustomer from './components/CreateCustomer/CreateCustomer';
 
 const AppRoutes = () =>
     <App>
         <Switch>
             <Route exact path="/" component={Purchase} />
-            <Route path="/Customers" component={Customers} />
-            <Route path="/Products" component={Products} />
+            <Route exact path="/Customers" component={Customers} />
+            <Route exact path="/Products" component={Products} />
+            <Route exact path="/CreateCustomer" component={CreateCustomer} />
         </Switch>
     </App>;
 

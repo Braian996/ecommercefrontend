@@ -65,6 +65,21 @@ button.generic {
   color: #61DAFB;
 }
 
+.button-create {
+    width: 100%;
+    border: none;
+    outline: none;
+    border-radius: 0;
+    padding: 15px 0;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    background-color: rgb(37, 109, 231);
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+}
+
 @keyframes bounce {
   0%, 20%, 60%, 100% {
     -webkit-transform: translateY(0);
