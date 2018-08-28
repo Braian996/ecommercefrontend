@@ -34,6 +34,10 @@ button.generic {
   margin: 10px;
 }
 
+.Wrap .error {
+  font-size: 26px;
+}
+
 .row {
   width: 100%;
 }
@@ -41,7 +45,7 @@ button.generic {
 .Add-new {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
-  width: 20%;
+  width: 250px;
   margin: 20px;
   text-align: center;
   cursor: pointer;
