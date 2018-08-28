@@ -9,6 +9,7 @@ import Products from './components/Products/Products';
 import Purchase from './components/Purchase/Purchase';
 import CreateCustomer from './components/CreateCustomer/CreateCustomer';
 import CreateProduct from './components/CreateProduct/CreateProduct';
+import ProductByCustomer from './components/ProductByCustomer/ProductByCustomer';
 
 const AppRoutes = () =>
     <App>
@@ -18,6 +19,7 @@ const AppRoutes = () =>
             <Route exact path="/Products" component={Products} />
             <Route exact path="/CreateCustomer" component={CreateCustomer} />
             <Route exact path="/CreateProduct" component={CreateProduct} />
+            <Route exact path="/ProductsOfCustomer/:customerId?" component={ProductByCustomer} />
         </Switch>
     </App>;
 

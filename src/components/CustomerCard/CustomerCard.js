@@ -12,7 +12,7 @@ const customerCard = (props) => {
             <img src={avatar} alt="avatar"/>
             <div className="container">
                 <h4>Name: {props.name}</h4>
-                <p><a>Ver productos adquiridos</a></p>
+                <p><Link to={`/ProductsOfCustomer/${props.id}`}>Ver productos adquiridos</Link></p>
             </div>
             <div className="actions">
                 <button className="delete" onClick={props.handleDeleteClick}>Delete</button>
