@@ -19,6 +19,10 @@ img {
     padding: 2px 16px;
 }
 
+.container p > a {
+    color: dodgerblue;
+}
+
 .actions {
     padding: 2px 16px 2%;
 }

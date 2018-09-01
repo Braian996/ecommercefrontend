@@ -32,42 +32,11 @@ class ProductByCustomer extends Component {
             });
     }
 
-    /*componentDidUpdate(prevProps, prevState) {
-        if (this.state.prevIdProd) {
-            console.log('Entry');
-            const newProducts = this.state.products.filter(product => product !== this.state.prevIdProd);
-            console.log(newProducts);
-            this.setState({
-                prevIdProd: null
-            });
-            this.getProducts();
-        }
-
-        if (this.state.products.length !== prevState.products.length) {
-            console.log('entro');
-            const newProducts = this.state.products;
-            this.setState({
-                products: newProducts
-            })
-        }
-
-    }*/
-
-    deletePurchase = (id, idProd) => {
-        let config = {
-            headers: {
-                'Content-type': 'application/json'
-            }
-        };
-        /*this.setState({
-            prevIdProd: idProd
-        });*/
-        axios.delete(`http://localhost:4000/purchase/${id}`, config)
-            .then(response => {
+    deletePurchase = (id) => {
+        axios.delete(`http://localhost:4000/purchase/${id}`)
+            .then((response) => {
                 const {data} = response;
-                console.log(data);
                 this.setState({
-                    prevIdProd: idProd,
                     products: data
                 })
             })
@@ -85,14 +54,14 @@ class ProductByCustomer extends Component {
                              id={product.id}
                              name={product.nombre}
                              stock={product.stock}
-                             handleDeleteClick={() => this.deletePurchase(product.purchaseId, product.id)}
+                             handleDeleteClick={() => this.deletePurchase(product.purchaseId)}
                 />
             );
     };
 
     render() {
         const products = this.getProducts();
-        const error = (<div className="error">{this.state.error}</div>)
+        const error = (<div className="error">{this.state.error}</div>);
 
         return (
             <div className="Wrap">
