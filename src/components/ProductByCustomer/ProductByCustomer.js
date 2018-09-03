@@ -32,8 +32,8 @@ class ProductByCustomer extends Component {
             });
     }
 
-    deletePurchase = (id) => {
-        axios.delete(`http://localhost:4000/purchase/${id}`)
+    deletePurchase = (id, idCostumer) => {
+        axios.delete(`http://localhost:4000/purchase/?purchaseId=${id}&customerId=${idCostumer}`)
             .then((response) => {
                 const {data} = response;
                 this.setState({
@@ -54,7 +54,9 @@ class ProductByCustomer extends Component {
                              id={product.id}
                              name={product.nombre}
                              stock={product.stock}
-                             handleDeleteClick={() => this.deletePurchase(product.purchaseId)}
+                             handleDeleteClick={
+                                 () => this.deletePurchase(product.purchaseId, this.props.match.params.customerId)
+                             }
                 />
             );
     };
