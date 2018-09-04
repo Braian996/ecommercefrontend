@@ -17,11 +17,6 @@ class Customers extends Component{
         customers: []
     };
 
-    constructor(props){
-        super(props);
-        //this.connectWithServer();
-    }
-
     componentDidMount(){
         this.connectWithServer();
     }

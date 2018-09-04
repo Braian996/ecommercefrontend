@@ -20,6 +20,7 @@ const AppRoutes = () =>
             <Route exact path="/CreateCustomer" component={CreateCustomer} />
             <Route exact path="/CreateProduct" component={CreateProduct} />
             <Route exact path="/ProductsOfCustomer/:customerId?" component={ProductByCustomer} />
+            <Route exact path="/UpdateProduct/:productId?" component={CreateProduct} />
         </Switch>
     </App>;
 
