@@ -95,6 +95,10 @@ class Products extends Component {
         if (productInput.length >= 3 || productInput.length === 0) this.connectWithServer(productInput);
     };
 
+    updateProduct = (id) => {
+        this.props.history.push(`/UpdateProduct/${id}`);
+    };
+
     getProducts = () => {
         return this.state.products
             .map(product => {
@@ -103,6 +107,7 @@ class Products extends Component {
                                  id={product.id}
                                  name={product.nombre}
                                  stock={product.stock}
+                                 handleEditClick={() => this.updateProduct(product.id)}
                     />
                 );
             })
