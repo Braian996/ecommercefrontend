@@ -13,7 +13,8 @@ class CreateProduct extends Component {
         error: null,
         categories: [],
         productId: null,
-        categoryName: ''
+        categoryName: '',
+        titleButton: 'Crear'
     };
 
     constructor(props){
@@ -29,7 +30,8 @@ class CreateProduct extends Component {
                         inputCategoryId: data[0].categoriaId,
                         categoryName: data[0].categoryName,
                         stock: data[0].stock,
-                        productId: data[0].id
+                        productId: data[0].id,
+                        titleButton: 'Actualizar'
                     })
                 })
                 .catch(err => {
@@ -84,23 +86,24 @@ class CreateProduct extends Component {
         this.props.history.push('/Products');
     };
 
-    updateProduct = () => {
+    updateProduct = async () => {
         const {inputName, inputCategoryId, stock, productId} = this.state;
 
-        axios.put(`http://localhost:4000/products/${productId}`, {
+        const response = await axios.put(`http://localhost:4000/products/${productId}`, {
             name: inputName,
             categoryId: inputCategoryId,
             stock
-        }).then((response) => {
-            const {data} = response;
-            console.log(data);
-            this.props.history.push('/Products')
         }).catch(err => {
-            console.log('ENTER');
             this.setState({
                 error: err.message
             })
         })
+
+        if (!response || this.state.error) {
+            console.log('error')
+        } else {
+            this.props.history.push('/Products')
+        }
     };
 
     buttonHandler = () => {
@@ -118,13 +121,14 @@ class CreateProduct extends Component {
 
     render() {
         const error = (<div className="error">{this.state.error}</div>);
+        const { titleButton } = this.state
 
         return (
             <div className="Create-content">
                 <div className="Create-header">
                     <h1>Alta producto</h1>
                 </div>
-                <form>
+                <div className="form">
                     <div className="form-group">
                         <label>Nombre de producto:</label>
                         <input type="text" onChange={this.getInputName} value={this.state.inputName} />
@@ -149,12 +153,12 @@ class CreateProduct extends Component {
                         <input type="number" onChange={this.getStock} value={this.state.stock} />
                     </div>
                     <div className="form-group">
-                        <button className="button-create" onClick={this.buttonHandler}>Crear</button>
+                        <button className="button-create" onClick={this.buttonHandler}>{ titleButton }</button>
                         {
                             this.state.error ? error : ''
                         }
                     </div>
-                </form>
+                </div>
             </div>
         );
     }

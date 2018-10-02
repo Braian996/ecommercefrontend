@@ -35,7 +35,7 @@ class CreateCustomer extends Component {
                 <div className="Create-header">
                     <h1>Registrar cliente</h1>
                 </div>
-                <form>
+                <div className="form">
                     <div className="form-group">
                         <label>Nombre:</label>
                         <input type="text" onChange={(event) => this.getInputName(event)} />
@@ -43,7 +43,7 @@ class CreateCustomer extends Component {
                     <div className="form-group">
                         <button className="button-create" onClick={this.saveCustomer}>Crear</button>
                     </div>
-                </form>
+                </div>
             </div>
         );
     }
