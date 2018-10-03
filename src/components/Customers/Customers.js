@@ -49,6 +49,10 @@ class Customers extends Component{
         if (nameInput.length >= 3 || nameInput.length === 0) this.connectWithServer(nameInput);
     };
 
+    updateCustomer = (id) => {
+        this.props.history.push(`/UpdateCustomer/${id}`);
+    };
+
     getCustomers = () => {
         return this.state.customers
             .map(customer => {
@@ -56,7 +60,7 @@ class Customers extends Component{
                     <CustomerCard key={customer.id}
                                   id={customer.id}
                                   name={customer.nombre}
-
+                                  handleEditClick={() => this.updateCustomer(customer.id)}
                     />
                 );
             });
