@@ -77,13 +77,12 @@ class CreateProduct extends Component {
             categoryId: inputCategoryId,
             stock
         }).then(response => {
-            console.log('Works')
+            this.props.history.push('/Products');
         }).catch(err => {
             this.setState({
                 error: err.message
             })
         });
-        this.props.history.push('/Products');
     };
 
     updateProduct = async () => {
